@@ -40,7 +40,7 @@ class BasePage:
 
     @allure.step("Подождать появление элемента")
     def wait(self, locator):
-        WebDriverWait(self.driver, 10).until( EC.visibility_of_any_elements_located(locator) )
+        WebDriverWait(self.driver, 10).until( EC.visibility_of_element_located(locator) )
 
     @allure.step("Подождать пропадание элемента")
     def wait_disappear(self, locator):

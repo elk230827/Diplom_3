@@ -4,7 +4,6 @@ import pytest
 import config
 from pages.home_page import HomePage
 from pages.lenta_page import LentaPage
-from test_data import QA
 from tests.test_base import BaseTest
 
 

@@ -2,11 +2,8 @@ from selenium.webdriver.common.by import By
 
 import allure
 
-from selenium.common.exceptions import NoSuchElementException
-import logging
 
 from pages.base_page import BasePage
-from test_data import HOME_HEADER, QA
 
 
 class LentaPage(BasePage):

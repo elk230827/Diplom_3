@@ -11,8 +11,7 @@ from pages.lenta_page import LentaPage
 from pages.login_page import LoginPage
 
 class BaseTest:
-    @pytest.fixture(autouse=True)
-    def interface_handler(self):
+    def setup_method(self):
         if BROWSER == "Chrome":
             from selenium.webdriver.chrome.options import Options
             options = Options()
@@ -32,8 +31,7 @@ class BaseTest:
             self.driver = webdriver.Firefox(options=options, service=service)
         else:
             raise Exception("Unsupported browser")
-        yield 
-
+    def teardown_method(self):
         self.driver.quit()
 
     @allure.step("Go to home page")
@@ -45,6 +43,7 @@ class BaseTest:
 
     @allure.step("Переход на страницу ленты")
     def lenta(self):
+        self.login()
         self.driver.get(LENTA_URL)
         lenta = LentaPage(self.driver)
         lenta.check_header()

@@ -1,17 +1,13 @@
 from time import sleep
 
 import allure
-import config
-from pages.home_page import HomePage
 from tests.test_base import BaseTest
-from test_data import LAST, COMMENT, NAME, ADDRESS, COLOR, METRO, PHONE, TERM_OPTION
 
 
 class TestLenta(BaseTest):
 
     @allure.title("при создании нового заказа счётчик «Выполнено за всё время» увеличивается")
     def test_lenta_all_time_counter(self):
-        login = self.login()
         lenta = self.lenta()
         start = int(lenta.get_all_counter().text)
         home = self.home()
@@ -23,7 +19,6 @@ class TestLenta(BaseTest):
 
     @allure.title("при создании нового заказа счётчик «Выполнено за сегодня» увеличивается")
     def test_lenta_day_counter(self):
-        login = self.login()
         lenta = self.lenta()
         start = int(lenta.get_day_counter().text)
         home = self.home()
@@ -35,7 +30,6 @@ class TestLenta(BaseTest):
 
     @allure.title("после оформления заказа его номер появляется в разделе «В работе»")
     def test_order_number_in_progress(self):
-        login = self.login()
         lenta = self.lenta()
         home = self.home()
         home.click_order()
