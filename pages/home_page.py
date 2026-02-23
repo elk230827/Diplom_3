@@ -5,6 +5,7 @@ import allure
 
 from pages.base_page import BasePage
 
+from config import URL
 
 class HomePage(BasePage):
     header = (By.XPATH, '//h1[contains(text(), "Соберите бургер")]')
@@ -16,6 +17,7 @@ class HomePage(BasePage):
     order_button = (By.XPATH, '//button[contains(text(), "Оформить заказ")]')
     order_number = (By.XPATH, '//h2[contains(@class, "Modal_modal__title")]')
 
+    URL = URL
 
     @allure.step("Проверка хидера")
     def check_header(self):

@@ -21,8 +21,8 @@ class LoginPage(BasePage):
 
     @allure.step("Залогиниться")
     def login(self, name, password):
-        name = self.find(*self.name_field)
-        name.send_keys(name)
+        name_element = self.find(*self.name_field)
+        name_element.send_keys(name)
         pswd = self.find(*self.password_field)
         pswd.send_keys(password)
         button = self.find(*self.enter_button)

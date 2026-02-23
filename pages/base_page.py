@@ -7,6 +7,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 
+from config import URL
+
 
 class BasePage:
     cnst_link = (By.XPATH, '//a[p[contains(text(), "Конструктор")]]')
@@ -15,6 +17,13 @@ class BasePage:
 
     def __init__(self, driver):
         self.driver = driver
+    
+    @allure.step("Открыть страницу")
+    def open(self):
+        self.driver.get(self.URL)
+        self.wait(self.header)
+        return self
+
 
     @allure.step("Кликнуть на конструктор")
     def click_cnst(self):
