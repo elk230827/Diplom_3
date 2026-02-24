@@ -1,13 +1,11 @@
-from time import sleep
 
 import allure
-from config import LENTA_URL, URL
+from config import URL
 from pages.home_page import HomePage
 from pages.lenta_page import LentaPage
-from tests.test_base import BaseTest
 
 
-class TestLenta(BaseTest):
+class TestLenta:
 
     @allure.title("при создании нового заказа счётчик «Выполнено за всё время» увеличивается")
     def test_lenta_all_time_counter(self, login):
@@ -31,7 +29,7 @@ class TestLenta(BaseTest):
         lenta = LentaPage(driver).open()
 
         start = int(lenta.get_day_counter().text)
-        home = self.home()
+        home = HomePage(driver).open()
         home.click_order()
         home.get_order_number()
 

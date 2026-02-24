@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 import allure
 
-from selenium.common.exceptions import NoSuchElementException
 
 from pages.base_page import BasePage
 

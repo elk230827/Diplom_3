@@ -1,13 +1,11 @@
 import allure
-import pytest
 
 import config
 from pages.home_page import HomePage
 from pages.lenta_page import LentaPage
-from tests.test_base import BaseTest
 
 
-class TestHome(BaseTest):
+class TestHome:
 
     @allure.title("переход по клику на «Конструктор»")
     def test_constructor_link(self, driver):
